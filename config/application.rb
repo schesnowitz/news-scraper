@@ -12,7 +12,7 @@ module FrontEnd
     config.load_defaults 5.2
     
     config.active_job.queue_adapter = :sidekiq 
-
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # config.active_job.queue_adapter = Rails.env.production? ? :sidekiq : :async
 
 
