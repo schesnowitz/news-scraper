@@ -1,0 +1,90 @@
+<% if @app_setting.hidden_sidebar == true %>
+<aside class="sidebar sidebar--hidden">
+  <% else %>
+  <aside class="sidebar">
+<% end %>
+
+  <div class="scrollbar-inner">
+    <div class="user">
+      <div class="user__info" data-toggle="dropdown">
+        <img class="user__img" src="<%= asset_url 'img/profile-pics/8.jpg' %>" alt="">
+        <div>
+          <div class="user__name">Malinda Hollaway</div>
+          <div class="user__email">malinda-h@gmail.com</div>
+        </div>
+      </div>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="">View Profile</a>
+        <a class="dropdown-item" href="">Settings</a>
+        <a class="dropdown-item" href="">Logout</a>
+      </div>
+    </div>
+    <ul class="navigation">
+      
+
+
+      <li class="">
+      <%= link_to root_path do %>
+        <i class="zmdi zmdi-home"></i> Home
+        <% end %>
+      </li>
+      
+
+
+  
+      <li class="navigation__sub">
+        <a href=""><i class="zmdi zmdi-view-week"></i> Administration</a>
+        <ul>
+      <li class="">
+      <%= link_to edit_app_setting_path(@app_setting) do %> 
+           App Settings
+        <% end %>
+      </li>
+
+      <li class="">
+      <%= link_to edit_theme_path(@app_setting) do %> 
+           Edit Theme
+        <% end %>
+      </li>
+
+        </ul>
+      </li>
+      
+
+      <li class="navigation__sub">
+        <a href=""><i class="zmdi zmdi-swap-alt"></i> Users</a>
+        <ul>
+        <% if current_user %>
+          <li><%= link_to "Edit Email/Password", edit_user_registration_path %></li>
+
+          <li><%= link_to "End Session", destroy_user_session_path, method: :delete %></li>
+          <% end %> 
+          <% if !current_user %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Registration", new_user_registration_path %></li>
+          <% end %>
+
+        </ul>
+      </li>
+
+     
+      
+
+      <li class="navigation__sub">
+        <a href=""><i class="zmdi zmdi-collection-item"></i> Sample Pages</a>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Messages</a></li>
+          <li><a href="#">Contacts</a></li>
+          <li><a href="#">New Contact</a></li>
+          <li><a href="#">Groups</a></li>
+          <li><a href="#">Pricing Tables</a></li>
+          <li><a href="#">Invoice</a></li>
+          <li><a href="#">Todo Lists</a></li>
+          <li><a href="#">Notes</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</aside>
