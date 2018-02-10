@@ -1,7 +1,7 @@
-# create_update_driver_profile_job:
-#   cron: "* * * * *"
-#   class: "CreateUpdateDriverProfileJob"  
-#   queue: default 
+create_news_job:
+  cron: "* * * * *"
+  class: "CreateNewsJob"   
+  queue: default 
 
 # create_update_vehicle_job:
 #   cron: "* * * * *"
