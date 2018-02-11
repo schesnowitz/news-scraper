@@ -4,27 +4,31 @@ class AppSettingsController < ApplicationController
   # GET /app_settings
   # GET /app_settings.json
   def index
+    is_admin?
     @app_settings = AppSetting.all
   end
 
   # GET /app_settings/1
   # GET /app_settings/1.json
   def show
+    is_admin?
   end
 
   # GET /app_settings/new
   def new
+    is_admin?
     @app_setting = AppSetting.new
   end
 
   # GET /app_settings/1/edit
   def edit
-
+    is_admin?
   end
 
   # POST /app_settings
   # POST /app_settings.json
   def create
+    is_admin?
     @app_setting = AppSetting.new(app_setting_params)
 
     respond_to do |format|
@@ -41,6 +45,7 @@ class AppSettingsController < ApplicationController
   # PATCH/PUT /app_settings/1
   # PATCH/PUT /app_settings/1.json
   def update
+    is_admin?
     respond_to do |format|
       if @app_setting.update(app_setting_params)
         format.html { redirect_to @app_setting, notice: 'App setting was successfully updated.' }
@@ -55,6 +60,7 @@ class AppSettingsController < ApplicationController
   # DELETE /app_settings/1
   # DELETE /app_settings/1.json
   def destroy
+    is_admin?
     @app_setting.destroy
     respond_to do |format|
       format.html { redirect_to app_settings_url, notice: 'App setting was successfully destroyed.' }
@@ -77,7 +83,10 @@ class AppSettingsController < ApplicationController
       params.require(:app_setting).permit(
         :theme_color,
         :hidden_sidebar,
-        :boxed_content
+        :boxed_content, 
+        :name, 
+        :email,
+        :tab_text
         )
     end
 end

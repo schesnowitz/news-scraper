@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 2018_02_10_212354) do
     t.string "theme_color"
     t.boolean "hidden_sidebar", default: false
     t.boolean "boxed_content", default: true
+    t.string "name"
+    t.string "email"
+    t.string "tab_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

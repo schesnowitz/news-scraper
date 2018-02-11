@@ -12,7 +12,17 @@ class ApplicationController < ActionController::Base
     redirect_back(fallback_location: root_path)
   end 
 
+  def is_admin?
+    if !current_user.try(:admin?)
+      the_fallback
+    end
+  end
+
   protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:admin])
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update, keys: [:admin])

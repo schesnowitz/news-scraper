@@ -1,10 +1,7 @@
-# driver_1 = Driver.create!(
-#   email: 'jlmulet@30gmail.com',
-#   password: 'password',
-#   password_confirmation: 'password'
-# )
-# puts driver_1.inspect
-# driver_2 = Driver.create!(
+
+
+
+# driver_2 = User.create!( 
 #   email: 'lofortetrucking@gmail.com',
 #   password: 'password',
 #   password_confirmation: 'password'
@@ -19,32 +16,31 @@
 #   driver_profile_1.save
 # puts driver_profile_1.inspect
 
-# driver_profile_2 = DriverProfile.find_or_initialize_by(id: 2)
-#   driver_profile_2.email = 'email2@email.com'
-#   driver_profile_2.first_name = 'Yoiner'
-#   driver_profile_2.last_name = 'Loforte'
-#   driver_profile_2.driver_string_id = '40268793320186691c34cdb5bb1d3456'
-#   driver_profile_2.save
-# puts driver_profile_2.inspect
 
-# driver_profile_3 = DriverProfile.find_or_initialize_by(id: 3)
-#   driver_profile_3.email = 'email3@email.com'
-#   driver_profile_3.first_name = 'Juan'
-#   driver_profile_3.last_name = 'Mulet'
-#   driver_profile_3.driver_string_id = '40268793320186691c34cdb5bb1d4567'
-#   driver_profile_3.save
-# puts driver_profile_3.inspect
-# rails d devise Admin
-# rails d devise:views admins
 
 app_setting = AppSetting.create!(
   hidden_sidebar: false,
-  theme_color: '2'
+  theme_color: '2',
+  name: "some name",
+  email: 'some email',
+  tab_text: 'text for tab'
 )
 
-app_setting = AppSetting.find_or_initialize_by(id: 1)
-app_setting.hidden_sidebar = false
-app_setting.theme_color = '8'
-app_setting.save 
-puts app_setting.inspect
+# setting = AppSetting.find_or_initialize_by(id: 1)
+# setting.hidden_sidebar = false
+# setting.theme_color = '8'
+# setting.name = "News Scraper"
+# setting.email = 'steve@chesnowitz.com'
+# setting.tab_text 'News Scraper'
+# setting.save 
+# puts setting.inspect
 
+
+user = User.create!(
+  email: 'steve@chesnowitz.com',
+  password: 'Blackn0t',
+  password_confirmation: 'Blackn0t',
+  admin: true
+
+)
+# puts user.inspect

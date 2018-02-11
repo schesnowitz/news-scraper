@@ -1,5 +1,5 @@
 create_news_job:
-  cron: "* * * * *"
+  cron: "*/5 * * * *"
   class: "CreateNewsJob"   
   queue: default 
 
