@@ -7,12 +7,6 @@
     <h1><%= @app_setting.name %></h1>
   <% end %>
   </div>
-  <form class="search">
-    <div class="search__inner">
-      <input type="text" class="search__text" placeholder="Search for people, files, documents...">
-      <i class="zmdi zmdi-search search__helper" data-sa-action="search-close"></i>
-    </div>
-  </form>
   <ul class="top-nav">
     <li class="hidden-xl-up"><a href="" data-sa-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
     <li class="dropdown">
@@ -249,5 +243,9 @@
       <span class="time__min"></span>
       <span class="time__sec"></span>
     </div>
+  </div>
+
+  <div>
+  <%= render 'layouts/partials/clock' %>
   </div>
 </header>
