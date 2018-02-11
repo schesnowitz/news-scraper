@@ -11,7 +11,7 @@ class AppSettingsController < ApplicationController
   # GET /app_settings/1
   # GET /app_settings/1.json
   def show
-    is_admin?
+
   end
 
   # GET /app_settings/new
@@ -22,7 +22,6 @@ class AppSettingsController < ApplicationController
 
   # GET /app_settings/1/edit
   def edit
-    is_admin?
   end
 
   # POST /app_settings
@@ -45,13 +44,12 @@ class AppSettingsController < ApplicationController
   # PATCH/PUT /app_settings/1
   # PATCH/PUT /app_settings/1.json
   def update
-    is_admin?
     respond_to do |format|
       if @app_setting.update(app_setting_params)
         format.html { redirect_to @app_setting, notice: 'App setting was successfully updated.' }
         format.json { render :show, status: :ok, location: @app_setting }
       else
-        format.html { render :edit }
+        flash[:danger] = "#{@app_setting.errors.full_messages.to_sentence}"
         format.json { render json: @app_setting.errors, status: :unprocessable_entity }
       end
     end

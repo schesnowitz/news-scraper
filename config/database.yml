@@ -1,20 +1,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 }.to_i %>
+  pool: 5
   timeout: 5000
   host: <%= ENV['DATA_DB_HOST'] %>
   username: <%= ENV['DATA_DB_USER'] %>
   password: <%= ENV['DATA_DB_PASS'] %>
+  database: gonano
 
 development:
   <<: *default
-  database: news_development
 
 test:
   <<: *default
-  database: news_test
 
 production:
   <<: *default
-  database: news_production

@@ -2,18 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <ul>
-      <li class="hidden-xs-down">
-          <a href="" class="top-nav__themes" data-sa-action="aside-open" data-sa-target=".themes"><i class="zmdi zmdi-palette"></i></a>
-      </li>
-    </ul>
-    <%= link_to "Edit Theme", edit_theme_path, class: 'btn btn-outline-primary' %>
+
+  <span class='hidden'>
     <%= f.input :theme_color %>
+  </span>
     <%= f.input :hidden_sidebar %>
     <%= f.input :boxed_content %>
+    <% if current_user.try(:admin) %>
     <%= f.input :name %>
     <%= f.input :email %>
     <%= f.input :tab_text %>
+    <% end %>
   </div>
 
   <div class="form-actions">

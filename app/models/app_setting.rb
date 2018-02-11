@@ -1,4 +1,5 @@
 class AppSetting < ApplicationRecord
+  # validates_inclusion_of :theme_color, in: 1..10, message: "Value must a number > 0 and < 10"
   COLOR = %w(
     1
     2
