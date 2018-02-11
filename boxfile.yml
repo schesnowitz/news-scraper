@@ -15,7 +15,7 @@ deploy.config:
   before_live:
     web.main:
       - rake db:setup_or_migrate
-      - rake db:seed
+      # - rake db:seedgit
 data.db:
   image: nanobox/postgresql:9.5
 
@@ -26,11 +26,20 @@ web.main:
   writable_dirs:
     - tmp
     - db
+
+
   log_watch:
     rails: 'log/production.log'
 
 worker.sidekiq:
   start: sidekiq
+
+  log_watch:
+    sidekiq: 'log/production.log'
+
+  writable_dirs:
+    - tmp
+    - log
 
 data.queue:
   image: nanobox/redis:4.0
