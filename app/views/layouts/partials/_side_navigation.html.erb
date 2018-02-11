@@ -23,7 +23,7 @@
       
       <li class="">
       <%= link_to news_index_path do %>
-        <i class="zmdi zmdi-home"></i> News
+        <i class="zmdi zmdi-info"></i> News
         <% end %>
       </li>
 
@@ -37,7 +37,7 @@
 
   
       <li class="navigation__sub">
-        <a href=""><i class="zmdi zmdi-view-week"></i> Administration</a>
+        <a href=""><i class="zmdi zmdi-settings"></i> Administration</a>
         <ul>
       <li class="">
       <%= link_to edit_app_setting_path(@app_setting) do %> 
@@ -51,7 +51,7 @@
       
 
       <li class="navigation__sub">
-        <a href=""><i class="zmdi zmdi-swap-alt"></i> Users</a>
+        <a href=""><i class="zmdi zmdi-accounts"></i> Users</a>
         <ul>
         <% if current_user %>
           <li><%= link_to "Edit Email/Password", edit_user_registration_path %></li>

@@ -1,60 +1,36 @@
-
+<%= paginate @news %>
+<br><br>
 <%= form_tag(news_index_path, method: :get, :class => 'form-inline') do %>
-
-
-
-
 <div class="toolbar">
-                        <div class="actions">
-                            <i class="actions__item zmdi zmdi-search" data-sa-action="toolbar-search-open"></i>
-                        </div>
-   <%= text_field_tag :term, params[:term], class: 'form-control' %>
+  <div class="actions">
+    <i class="actions__item zmdi zmdi-search" data-sa-action="toolbar-search-open"></i>
+  </div>
+  <%= text_field_tag :term, params[:term], class: 'form-control' %>
   <%= submit_tag 'Search', class: 'btn btn-danger' %>
-    <%= link_to "Clear Search", news_index_path, class: 'btn btn-info' %>
-                        <div class="toolbar__search" style="display: none;">
-
-                            <i class="toolbar__search__close zmdi zmdi-long-arrow-left" data-sa-action="toolbar-search-close"></i>
-                        </div>
-                    </div>
-
+  <%= link_to "Clear Search", news_index_path, class: 'btn btn-info' %>
+  <div class="toolbar__search" style="display: none;">
+    <i class="toolbar__search__close zmdi zmdi-long-arrow-left" data-sa-action="toolbar-search-close"></i>
+  </div>
+</div>
 <% end %>
-
-
-
-
-
-
 <div class='row'>
-<% @news.each do |news| %>
-
-<div class='col-sm-2'>
-<div class="card mb-3">
-<%= link_to news.title_url, target: :_blank do %>
-  <h3 class="card-header"><%= truncate(news.title, length: 60) %></h3>
-  <div class="card-body">
-    <h5 class="card-title"><%= (news.source) %></h5>
-    <h6 class="card-subtitle text-muted"><%= truncate(news.body) %></h6>
+  <% @news.each do |news| %>
+  <div class='col-sm-3'>
+    <div class="card mb-3">
+      <%= link_to news.title_url, target: :_blank do %>
+      <h3 class="card-header"><%= truncate(news.title, length: 60) %></h3>
+      <div class="card-body">
+        <h5 class="card-title"><%= (news.source) %></h5>
+        <h6 class="card-subtitle text-muted"><%= truncate(news.body) %></h6>
+      </div>
+      <% end %>
+      <%= image_tag (news.image_url) %>
+      <div class="card-footer text-muted">
+        Story Published <%= time_ago_in_words(news.created_at) %> ago
+      </div>
+    </div>
   </div>
-    <% end %>
-<%= image_tag (news.image_url) %>
-  <div class="card-footer text-muted">
-    Story Published <%= time_ago_in_words(news.created_at) %> ago
-  </div>
- 
+  <% end %>
 </div>
-</div>
-
- <% end %>
-
-</div>
-
-
-
-  
-
-   
-
-
 <br>
-
 <%= link_to 'New News', new_news_path %>
