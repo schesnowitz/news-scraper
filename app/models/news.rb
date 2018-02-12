@@ -1,5 +1,5 @@
 class News < ApplicationRecord
-  # validates :title, uniqueness: true
+  validates :title, uniqueness: true
   # paginates_per 2
   def self.search(term)
     if term
